@@ -1,0 +1,888 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Agriculture Commodities Exchange
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-green-700 text-white shadow">
+   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+     <img alt="Logo with stylized green leaf and wheat stalk representing agriculture" class="w-10 h-10 rounded" height="40" src="https://storage.googleapis.com/a1aa/image/94bbfd17-bbd8-48e4-787c-2877ca6e8b33.jpg" width="40"/>
+     <h1 class="text-2xl font-semibold tracking-wide">
+      AgriExchange
+     </h1>
+    </div>
+    <nav class="hidden md:flex space-x-8 font-semibold">
+     <a class="hover:text-green-300 transition" href="#commodities">
+      Commodities
+     </a>
+     <a class="hover:text-green-300 transition" href="#market">
+      Market
+     </a>
+     <a class="hover:text-green-300 transition" href="#price-update">
+      Price Update
+     </a>
+     <a class="hover:text-green-300 transition" href="#price-history">
+      Price History
+     </a>
+     <a class="hover:text-green-300 transition" href="#wholesale-farmers">
+      Wholesale Farmers
+     </a>
+     <a class="hover:text-green-300 transition" href="#transport-services">
+      Transport Services
+     </a>
+     <a class="hover:text-green-300 transition" href="#news">
+      News
+     </a>
+     <a class="hover:text-green-300 transition" href="#contact">
+      Contact
+     </a>
+    </nav>
+    <div class="md:hidden">
+     <button aria-label="Toggle menu" class="focus:outline-none" id="menu-btn">
+      <i class="fas fa-bars text-2xl">
+      </i>
+     </button>
+    </div>
+   </div>
+   <nav class="hidden bg-green-600 md:hidden" id="mobile-menu">
+    <a class="block px-4 py-3 border-b border-green-500 hover:bg-green-500 transition" href="#commodities">
+     Commodities
+    </a>
+    <a class="block px-4 py-3 border-b border-green-500 hover:bg-green-500 transition" href="#market">
+     Market
+    </a>
+    <a class="block px-4 py-3 border-b border-green-500 hover:bg-green-500 transition" href="#price-update">
+     Price Update
+    </a>
+    <a class="block px-4 py-3 border-b border-green-500 hover:bg-green-500 transition" href="#price-history">
+     Price History
+    </a>
+    <a class="block px-4 py-3 border-b border-green-500 hover:bg-green-500 transition" href="#wholesale-farmers">
+     Wholesale Farmers
+    </a>
+    <a class="block px-4 py-3 border-b border-green-500 hover:bg-green-500 transition" href="#transport-services">
+     Transport Services
+    </a>
+    <a class="block px-4 py-3 border-b border-green-500 hover:bg-green-500 transition" href="#news">
+     News
+    </a>
+    <a class="block px-4 py-3 hover:bg-green-500 transition" href="#contact">
+     Contact
+    </a>
+   </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="bg-green-100 py-16 px-6 md:px-12 text-center">
+   <h2 class="text-4xl md:text-5xl font-extrabold text-green-900 mb-4">
+    Exchange Agriculture Commodities Seamlessly
+   </h2>
+   <p class="max-w-3xl mx-auto text-green-800 text-lg md:text-xl mb-8">
+    Connect farmers, traders, buyers, and transporters to trade and move grains, fruits, vegetables, and more with ease and transparency.
+   </p>
+   <a class="inline-block bg-green-700 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:bg-green-800 transition" href="#commodities">
+    Explore Commodities
+   </a>
+  </section>
+  <!-- Commodities Section -->
+  <section class="container mx-auto px-4 py-12" id="commodities">
+   <h3 class="text-3xl font-bold text-green-900 mb-8 text-center">
+    Available Commodities
+   </h3>
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+     <img alt="Golden wheat field under a clear blue sky with a farmer harvesting wheat" class="w-full h-48 object-cover" height="250" src="https://storage.googleapis.com/a1aa/image/b7ab1315-e641-4ff5-7687-44340a081543.jpg" width="400"/>
+     <div class="p-4 flex flex-col flex-grow">
+      <h4 class="text-xl font-semibold text-green-800 mb-2">
+       Wheat
+      </h4>
+      <p class="text-gray-700 flex-grow">
+       High-quality wheat grains, suitable for flour and baking industries.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-700 font-bold text-lg">
+        LKR 2,000 / quintal
+       </span>
+       <button class="bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800 transition text-sm show-chart-btn" data-commodity="Wheat">
+        View Price History
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+     <img alt="Bright red ripe tomatoes on the vine in a greenhouse with morning sunlight" class="w-full h-48 object-cover" height="250" src="https://storage.googleapis.com/a1aa/image/7f70c02b-8f41-46c9-7010-e2d35451965f.jpg" width="400"/>
+     <div class="p-4 flex flex-col flex-grow">
+      <h4 class="text-xl font-semibold text-green-800 mb-2">
+       Tomatoes
+      </h4>
+      <p class="text-gray-700 flex-grow">
+       Fresh and juicy tomatoes, perfect for sauces and salads.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-700 font-bold text-lg">
+        LKR 1,200 / quintal
+       </span>
+       <button class="bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800 transition text-sm show-chart-btn" data-commodity="Tomatoes">
+        View Price History
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+     <img alt="Heap of fresh brown potatoes with soil texture in a rustic basket" class="w-full h-48 object-cover" height="250" src="https://storage.googleapis.com/a1aa/image/c5b028ea-0ef6-483b-2934-434a15ee9963.jpg" width="400"/>
+     <div class="p-4 flex flex-col flex-grow">
+      <h4 class="text-xl font-semibold text-green-800 mb-2">
+       Potatoes
+      </h4>
+      <p class="text-gray-700 flex-grow">
+       Clean and firm potatoes, ideal for cooking and processing.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-700 font-bold text-lg">
+        LKR 900 / quintal
+       </span>
+       <button class="bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800 transition text-sm show-chart-btn" data-commodity="Potatoes">
+        View Price History
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+     <img alt="Fresh red onions with green stems on a wooden table" class="w-full h-48 object-cover" height="250" src="https://storage.googleapis.com/a1aa/image/c4c72b5c-b98b-49bb-9827-00b63bc426a0.jpg" width="400"/>
+     <div class="p-4 flex flex-col flex-grow">
+      <h4 class="text-xl font-semibold text-green-800 mb-2">
+       Onions
+      </h4>
+      <p class="text-gray-700 flex-grow">
+       Crisp and pungent onions, suitable for cooking and pickling.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-700 font-bold text-lg">
+        LKR 1,100 / quintal
+       </span>
+       <button class="bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800 transition text-sm show-chart-btn" data-commodity="Onions">
+        View Price History
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Price History Section -->
+  <section class="bg-white py-12 px-4 md:px-12" id="price-history">
+   <div class="container mx-auto max-w-4xl">
+    <h3 class="text-3xl font-bold text-green-900 mb-8 text-center">
+     Commodity Price History
+    </h3>
+    <div class="mb-6 max-w-md mx-auto">
+     <label class="block text-green-800 font-semibold mb-2" for="commodity-select">
+      Select Commodity
+     </label>
+     <select class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="commodity-select" aria-label="Select commodity for price history">
+      <option value="" disabled="" selected="">
+       Choose a commodity
+      </option>
+      <option value="Wheat">
+       Wheat
+      </option>
+      <option value="Tomatoes">
+       Tomatoes
+      </option>
+      <option value="Potatoes">
+       Potatoes
+      </option>
+      <option value="Onions">
+       Onions
+      </option>
+      <option value="Apples">
+       Apples
+      </option>
+      <option value="Bananas">
+       Bananas
+      </option>
+      <option value="Carrots">
+       Carrots
+      </option>
+      <option value="Sugarcane">
+       Sugarcane
+      </option>
+      <option value="Corn">
+       Corn
+      </option>
+      <option value="Green Peas">
+       Green Peas
+      </option>
+      <option value="Chili Peppers">
+       Chili Peppers
+      </option>
+      <option value="Soybeans">
+       Soybeans
+      </option>
+      <option value="Cotton">
+       Cotton
+      </option>
+      <option value="Coffee Beans">
+       Coffee Beans
+      </option>
+      <option value="Tea Leaves">
+       Tea Leaves
+      </option>
+     </select>
+    </div>
+    <canvas aria-label="Line chart showing past daily commodity prices over time" class="rounded-lg shadow-lg" height="300" id="priceChart" role="img" width="800">
+    </canvas>
+   </div>
+  </section>
+  <!-- Price Update Section -->
+  <section class="bg-white py-12 px-4 md:px-12" id="price-update">
+   <div class="container mx-auto max-w-3xl">
+    <h3 class="text-3xl font-bold text-green-900 mb-8 text-center">
+     Daily Price Update - Wholesale & Retail
+    </h3>
+    <p class="text-green-800 mb-6 text-center max-w-xl mx-auto">
+     Registered agents from the 14 economic centers in Sri Lanka can upload daily Excel sheets containing wholesale and retail sale prices of commodities.
+    </p>
+    <form action="#" method="POST" enctype="multipart/form-data" class="bg-green-50 rounded-lg shadow p-8 space-y-6">
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="agent-name">
+       Agent Name
+      </label>
+      <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="agent-name" name="agent-name" placeholder="Your full name" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="economic-center">
+       Economic Center
+      </label>
+      <select class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="economic-center" name="economic-center" required="">
+       <option disabled="" selected="" value="">
+        Select Economic Center
+       </option>
+       <option value="Colombo">
+        Colombo
+       </option>
+       <option value="Kandy">
+        Kandy
+       </option>
+       <option value="Galle">
+        Galle
+       </option>
+       <option value="Jaffna">
+        Jaffna
+       </option>
+       <option value="Anuradhapura">
+        Anuradhapura
+       </option>
+       <option value="Batticaloa">
+        Batticaloa
+       </option>
+       <option value="Matara">
+        Matara
+       </option>
+       <option value="Kurunegala">
+        Kurunegala
+       </option>
+       <option value="Badulla">
+        Badulla
+       </option>
+       <option value="Trincomalee">
+        Trincomalee
+       </option>
+       <option value="Ratnapura">
+        Ratnapura
+       </option>
+       <option value="Polonnaruwa">
+        Polonnaruwa
+       </option>
+       <option value="Nuwara Eliya">
+        Nuwara Eliya
+       </option>
+       <option value="Hambantota">
+        Hambantota
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="upload-date">
+       Date of Price Data
+      </label>
+      <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="upload-date" name="upload-date" required="" type="date"/>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="price-file">
+       Upload Excel File (.xls, .xlsx)
+      </label>
+      <input accept=".xls,.xlsx" class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="price-file" name="price-file" required="" type="file"/>
+     </div>
+     <button class="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition w-full" type="submit">
+      Upload Prices
+     </button>
+    </form>
+    <p class="text-center text-sm text-green-700 mt-4">
+     Only registered agents from the listed economic centers are authorized to upload price data.
+    </p>
+   </div>
+  </section>
+  <!-- Wholesale Farmers Registration Section -->
+  <section class="bg-green-50 py-12 px-4 md:px-12" id="wholesale-farmers">
+   <div class="container mx-auto max-w-3xl">
+    <h3 class="text-3xl font-bold text-green-900 mb-8 text-center">
+     Registered Wholesale Farmers
+    </h3>
+    <p class="text-green-800 mb-8 text-center max-w-xl mx-auto">
+     Wholesale farmers can register here to gain access to exclusive trading opportunities and connect directly with buyers and traders.
+    </p>
+    <form action="#" method="POST" class="bg-white rounded-lg shadow p-8 space-y-6">
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="farmer-name">
+       Full Name
+      </label>
+      <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="farmer-name" name="farmer-name" placeholder="Your full name" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="farm-name">
+       Farm/Business Name
+      </label>
+      <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="farm-name" name="farm-name" placeholder="Your farm or business name" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="email-farmer">
+       Email Address
+      </label>
+      <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="email-farmer" name="email-farmer" placeholder="you@example.com" required="" type="email"/>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="phone-farmer">
+       Phone Number
+      </label>
+      <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="phone-farmer" name="phone-farmer" placeholder="+94 7XX XXX XXX" required="" type="tel" pattern="^\+94\s7\d{2}\s\d{3}\s\d{3}$" title="Phone number format: +94 7XX XXX XXX"/>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="location-farmer">
+       Location
+      </label>
+      <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="location-farmer" name="location-farmer" placeholder="City, District" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="commodities-farmer">
+       Commodities Available for Wholesale
+      </label>
+      <select class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="commodities-farmer" multiple="" name="commodities-farmer[]" required="" size="5">
+       <option value="Wheat">
+        Wheat
+       </option>
+       <option value="Tomatoes">
+        Tomatoes
+       </option>
+       <option value="Potatoes">
+        Potatoes
+       </option>
+       <option value="Onions">
+        Onions
+       </option>
+       <option value="Apples">
+        Apples
+       </option>
+       <option value="Bananas">
+        Bananas
+       </option>
+       <option value="Carrots">
+        Carrots
+       </option>
+       <option value="Sugarcane">
+        Sugarcane
+       </option>
+       <option value="Corn">
+        Corn
+       </option>
+       <option value="Green Peas">
+        Green Peas
+       </option>
+       <option value="Chili Peppers">
+        Chili Peppers
+       </option>
+       <option value="Soybeans">
+        Soybeans
+       </option>
+       <option value="Cotton">
+        Cotton
+       </option>
+       <option value="Coffee Beans">
+        Coffee Beans
+       </option>
+       <option value="Tea Leaves">
+        Tea Leaves
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block text-green-800 font-semibold mb-2" for="additional-info">
+       Additional Information
+      </label>
+      <textarea class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="additional-info" name="additional-info" placeholder="Any other details you want to share" rows="3"></textarea>
+     </div>
+     <button class="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition w-full" type="submit">
+      Register
+     </button>
+    </form>
+   </div>
+  </section>
+  <!-- Transport Services Section -->
+  <section class="bg-green-100 py-12 px-4 md:px-12" id="transport-services">
+   <div class="container mx-auto max-w-5xl">
+    <h3 class="text-3xl font-bold text-green-900 mb-8 text-center">
+     Registered Agri Commodity Transport Services
+    </h3>
+    <p class="text-green-800 mb-8 text-center max-w-3xl mx-auto">
+     Find reliable transport services for your agricultural commodities. Contact details and current vehicle locations are provided for convenience.
+    </p>
+    <div class="overflow-x-auto">
+     <table class="min-w-full bg-white rounded-lg shadow border border-gray-300">
+      <thead class="bg-green-700 text-white">
+       <tr>
+        <th class="text-left py-3 px-4">
+         Transport Service
+        </th>
+        <th class="text-left py-3 px-4">
+         Contact Number
+        </th>
+        <th class="text-left py-3 px-4">
+         Current Vehicle Location
+        </th>
+       </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         GreenWay Logistics
+        </td>
+        <td class="py-3 px-4">
+         +94 77 123 4567
+        </td>
+        <td class="py-3 px-4">
+         Colombo - Near Peliyagoda
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         AgroTrans Lanka
+        </td>
+        <td class="py-3 px-4">
+         +94 71 987 6543
+        </td>
+        <td class="py-3 px-4">
+         Kandy - Katugastota Junction
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         FreshFarm Transporters
+        </td>
+        <td class="py-3 px-4">
+         +94 76 555 3322
+        </td>
+        <td class="py-3 px-4">
+         Galle - Near Unawatuna Beach
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         Lanka Agro Movers
+        </td>
+        <td class="py-3 px-4">
+         +94 70 444 7788
+        </td>
+        <td class="py-3 px-4">
+         Anuradhapura - New Town Area
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         Harvest Haulers
+        </td>
+        <td class="py-3 px-4">
+         +94 75 666 8899
+        </td>
+        <td class="py-3 px-4">
+         Matara - Near Railway Station
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         AgroFleet Express
+        </td>
+        <td class="py-3 px-4">
+         +94 72 333 2211
+        </td>
+        <td class="py-3 px-4">
+         Batticaloa - Central Market Area
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         FarmLink Transport
+        </td>
+        <td class="py-3 px-4">
+         +94 78 999 4455
+        </td>
+        <td class="py-3 px-4">
+         Kurunegala - Near Bus Stand
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         CropCarriers
+        </td>
+        <td class="py-3 px-4">
+         +94 74 888 5566
+        </td>
+        <td class="py-3 px-4">
+         Badulla - Town Center
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         AgroTrans Solutions
+        </td>
+        <td class="py-3 px-4">
+         +94 71 777 3344
+        </td>
+        <td class="py-3 px-4">
+         Trincomalee - Harbor Area
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         GreenPath Logistics
+        </td>
+        <td class="py-3 px-4">
+         +94 76 222 7788
+        </td>
+        <td class="py-3 px-4">
+         Ratnapura - Near Market Complex
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         Harvest Movers
+        </td>
+        <td class="py-3 px-4">
+         +94 70 555 6677
+        </td>
+        <td class="py-3 px-4">
+         Polonnaruwa - Main Bus Stand
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         TeaTrail Transport
+        </td>
+        <td class="py-3 px-4">
+         +94 77 444 8899
+        </td>
+        <td class="py-3 px-4">
+         Nuwara Eliya - Near Market Square
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         AgroMove Express
+        </td>
+        <td class="py-3 px-4">
+         +94 75 333 2211
+        </td>
+        <td class="py-3 px-4">
+         Hambantota - Industrial Zone
+        </td>
+       </tr>
+       <tr class="hover:bg-green-50 transition">
+        <td class="py-3 px-4 font-semibold text-green-800">
+         FarmFleet Logistics
+        </td>
+        <td class="py-3 px-4">
+         +94 73 666 3344
+        </td>
+        <td class="py-3 px-4">
+         Jaffna - Near Central Market
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+  </section>
+  <!-- News Section -->
+  <section class="bg-green-100 py-12 px-4 md:px-12" id="news">
+   <div class="container mx-auto max-w-7xl">
+    <h3 class="text-3xl font-bold text-green-900 mb-8 text-center">
+     Latest Agriculture News
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+     <article class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+      <img alt="Group of farmers holding banners and protesting in a rural area with tractors" class="w-full h-48 object-cover" height="350" src="https://storage.googleapis.com/a1aa/image/31768ddd-f042-4cb1-4f3e-504dfdffdff5.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h4 class="text-xl font-semibold text-green-800 mb-2">
+        Farmers Rally for Better Prices
+       </h4>
+       <p class="text-gray-700 flex-grow">
+        Thousands of farmers gathered to demand fair pricing and government support for crops.
+       </p>
+       <a class="mt-4 text-green-700 font-semibold hover:underline self-start" href="#">
+        Read More →
+       </a>
+      </div>
+     </article>
+     <article class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+      <img alt="Modern irrigation system spraying water over a large green farm field under blue sky" class="w-full h-48 object-cover" height="350" src="https://storage.googleapis.com/a1aa/image/f8928b9c-0355-43d5-9f95-f8e138f690c5.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h4 class="text-xl font-semibold text-green-800 mb-2">
+        Innovative Irrigation Technology Boosts Yield
+       </h4>
+       <p class="text-gray-700 flex-grow">
+        New drip irrigation methods help conserve water and increase crop productivity.
+       </p>
+       <a class="mt-4 text-green-700 font-semibold hover:underline self-start" href="#">
+        Read More →
+       </a>
+      </div>
+     </article>
+     <article class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+      <img alt="Farmer inspecting organic vegetable plants in a greenhouse with natural sunlight" class="w-full h-48 object-cover" height="350" src="https://storage.googleapis.com/a1aa/image/bc86bf3a-fdbc-497b-f114-f772c787f556.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h4 class="text-xl font-semibold text-green-800 mb-2">
+        Organic Farming Gains Popularity
+       </h4>
+       <p class="text-gray-700 flex-grow">
+        More farmers are adopting organic practices to meet growing consumer demand.
+       </p>
+       <a class="mt-4 text-green-700 font-semibold hover:underline self-start" href="#">
+        Read More →
+       </a>
+      </div>
+     </article>
+    </div>
+   </div>
+  </section>
+  <!-- Contact Section -->
+  <section class="container mx-auto px-4 py-12 max-w-3xl" id="contact">
+   <h3 class="text-3xl font-bold text-green-900 mb-8 text-center">
+    Contact Us
+   </h3>
+   <form action="#" class="bg-white rounded-lg shadow p-8 space-y-6" method="POST">
+    <div>
+     <label class="block text-green-800 font-semibold mb-2" for="name">
+      Name
+     </label>
+     <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+    </div>
+    <div>
+     <label class="block text-green-800 font-semibold mb-2" for="email">
+      Email
+     </label>
+     <input class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+    </div>
+    <div>
+     <label class="block text-green-800 font-semibold mb-2" for="message">
+      Message
+     </label>
+     <textarea class="w-full border border-green-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="message" name="message" placeholder="Write your message here" required="" rows="4"></textarea>
+    </div>
+    <button class="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition w-full" type="submit">
+     Send Message
+    </button>
+   </form>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-green-700 text-green-100 py-6 mt-auto">
+   <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm">
+    <p>
+     © 2024 AgriExchange. All rights reserved.
+    </p>
+    <div class="flex space-x-6 mt-4 md:mt-0">
+     <a aria-label="Facebook" class="hover:text-green-300 transition" href="#">
+      <i class="fab fa-facebook-f">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-green-300 transition" href="#">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-green-300 transition" href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a aria-label="LinkedIn" class="hover:text-green-300 transition" href="#">
+      <i class="fab fa-linkedin-in">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   const menuBtn = document.getElementById('menu-btn');
+   const mobileMenu = document.getElementById('mobile-menu');
+
+   menuBtn.addEventListener('click', () => {
+     mobileMenu.classList.toggle('hidden');
+   });
+
+   // Sample historical price data for demonstration
+   const samplePriceData = {
+     Wheat: {
+       dates: ['2024-05-01', '2024-05-02', '2024-05-03', '2024-05-04', '2024-05-05', '2024-05-06', '2024-05-07'],
+       wholesale: [1950, 1980, 2000, 2020, 2010, 2030, 2050],
+       retail: [2100, 2120, 2150, 2170, 2160, 2180, 2200]
+     },
+     Tomatoes: {
+       dates: ['2024-05-01', '2024-05-02', '2024-05-03', '2024-05-04', '2024-05-05', '2024-05-06', '2024-05-07'],
+       wholesale: [1150, 1170, 1200, 1180, 1190, 1210, 1220],
+       retail: [1300, 1320, 1350, 1330, 1340, 1360, 1370]
+     },
+     Potatoes: {
+       dates: ['2024-05-01', '2024-05-02', '2024-05-03', '2024-05-04', '2024-05-05', '2024-05-06', '2024-05-07'],
+       wholesale: [850, 870, 900, 880, 890, 910, 920],
+       retail: [1000, 1020, 1050, 1030, 1040, 1060, 1070]
+     },
+     Onions: {
+       dates: ['2024-05-01', '2024-05-02', '2024-05-03', '2024-05-04', '2024-05-05', '2024-05-06', '2024-05-07'],
+       wholesale: [1050, 1070, 1100, 1080, 1090, 1110, 1120],
+       retail: [1200, 1220, 1250, 1230, 1240, 1260, 1270]
+     }
+   };
+
+   const ctx = document.getElementById('priceChart').getContext('2d');
+   let priceChart = null;
+
+   function renderChart(commodity) {
+     if (!commodity || !samplePriceData[commodity]) {
+       if (priceChart) {
+         priceChart.destroy();
+         priceChart = null;
+       }
+       return;
+     }
+     const data = samplePriceData[commodity];
+     if (priceChart) {
+       priceChart.destroy();
+     }
+     priceChart = new Chart(ctx, {
+       type: 'line',
+       data: {
+         labels: data.dates,
+         datasets: [
+           {
+             label: 'Wholesale Price (LKR/quintal)',
+             data: data.wholesale,
+             borderColor: 'rgba(34,197,94,1)',
+             backgroundColor: 'rgba(34,197,94,0.2)',
+             fill: true,
+             tension: 0.3,
+             pointRadius: 4,
+             pointHoverRadius: 6
+           },
+           {
+             label: 'Retail Price (LKR/quintal)',
+             data: data.retail,
+             borderColor: 'rgba(16,185,129,1)',
+             backgroundColor: 'rgba(16,185,129,0.2)',
+             fill: true,
+             tension: 0.3,
+             pointRadius: 4,
+             pointHoverRadius: 6
+           }
+         ]
+       },
+       options: {
+         responsive: true,
+         maintainAspectRatio: false,
+         interaction: {
+           mode: 'nearest',
+           intersect: false
+         },
+         plugins: {
+           legend: {
+             labels: {
+               color: '#166534',
+               font: {
+                 weight: '600'
+               }
+             }
+           },
+           tooltip: {
+             mode: 'index',
+             intersect: false
+           }
+         },
+         scales: {
+           x: {
+             title: {
+               display: true,
+               text: 'Date',
+               color: '#166534',
+               font: {
+                 weight: '600'
+               }
+             },
+             ticks: {
+               color: '#166534'
+             },
+             grid: {
+               color: '#d1fae5'
+             }
+           },
+           y: {
+             title: {
+               display: true,
+               text: 'Price (LKR/quintal)',
+               color: '#166534',
+               font: {
+                 weight: '600'
+               }
+             },
+             ticks: {
+               color: '#166534'
+             },
+             grid: {
+               color: '#d1fae5'
+             },
+             beginAtZero: false
+           }
+         }
+       }
+     });
+   }
+
+   // Handle select change
+   const commoditySelect = document.getElementById('commodity-select');
+   commoditySelect.addEventListener('change', (e) => {
+     renderChart(e.target.value);
+     // Scroll to chart on selection
+     document.getElementById('price-history').scrollIntoView({behavior: 'smooth'});
+   });
+
+   // Handle buttons in commodities section
+   const buttons = document.querySelectorAll('.show-chart-btn');
+   buttons.forEach(btn => {
+     btn.addEventListener('click', () => {
+       const commodity = btn.getAttribute('data-commodity');
+       commoditySelect.value = commodity;
+       renderChart(commodity);
+       document.getElementById('price-history').scrollIntoView({behavior: 'smooth'});
+     });
+   });
+  </script>
+ </body>
+</html>
